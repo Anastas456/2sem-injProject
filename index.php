@@ -28,8 +28,14 @@
             $_GET['pg']=0;
         echo getDishes($_GET['pg']);
     } 
-    // else
-    // if( $_GET['p'] == 'edit' ) { include 'edit.php'; } else
+    else
+    if( $_GET['p'] == 'recipes' ) { 
+        include 'recipes.php'; 
+        if( !isset($_GET['pg']) || $_GET['pg']<0 ) 
+            $_GET['pg']=0;
+        echo getRecipes($_GET['pg']);
+    } 
+    //else
     // if( $_GET['p'] == 'delete' ) { include 'delete.php'; } 
 
     require 'footer.php';

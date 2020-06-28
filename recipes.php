@@ -1,5 +1,5 @@
 <?php
-function getDishes($page)
+function getRecipes($page)
 {
     global $mysqli;
     $password='123456789';
@@ -9,7 +9,7 @@ function getDishes($page)
     if( mysqli_connect_errno() ) 
         return 'Ошибка подключения к БД: '.mysqli_connect_error();
 
-    $sql_res=mysqli_query($mysqli, 'SELECT COUNT(*) FROM dishes');
+    $sql_res=mysqli_query($mysqli, 'SELECT COUNT(*) FROM for_user');
 
     if( !mysqli_errno($mysqli) && $row=mysqli_fetch_row($sql_res) )
     {
@@ -19,19 +19,18 @@ function getDishes($page)
         $PAGES = ceil($TOTAL/10);
         if( $page>=$TOTAL )
             $page=$TOTAL-1; 
-            $sql="SELECT * FROM dishes LIMIT ".($page * 10).", 10";
+            $sql="SELECT * FROM for_user LIMIT ".($page * 10).", 10";
     $sql_res=mysqli_query($mysqli, $sql);
     $ret='<div class="container-fluid">
-        <h1 class="mt-3">Наши блюда</h1>
+        <h1 class="mt-3">Новые рецепты</h1>
+        <h6>Здесь хранятся блюда, которые могут войти в нашему меню. Хотите, чтобы ваше блюдо стало популярным? Добавьте свое блюдо!</h6>
         <div class="row">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
             $ret.='<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 p-5 dish-list">
-            <h5 class="text-center">'.$row[2].'</h5>
-            <p class="text-muted">'.$row[3].'</p>
-            <p class="text-left">'.$row[4].' г</p>
-            <p class="text-right text-info">'.$row[5].' руб</p>
-            <button type="button" class="btn btn-lg mb-0 bg-dark text-light">Заказать</button>
+            <h5 class="text-center">'.$row[1].'</h5>
+            <p class="text-muted">'.$row[2].'</p>
+            <p class="text-right text-info">'.$row[3].' руб</p>
         </div>';
         }
         $ret.='</div></div>';
@@ -41,7 +40,7 @@ function getDishes($page)
                 $ret.='<div id="pages">';
                 for($i=0; $i<$PAGES; $i++)
                     if( $i != $page )
-                        $ret.='<a href="?p=menu&pg='.$i.'">'.($i+1).'</a>';
+                        $ret.='<a href="?p=recipes&pg='.$i.'">'.($i+1).'</a>';
                     else 
                         $ret.='<span>'.($i+1).'</span>';
                 $ret.='</div>';

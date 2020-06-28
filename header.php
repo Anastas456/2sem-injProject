@@ -25,11 +25,11 @@
             echo '"><a class="nav-link" href="?p=menu"';
             echo '>Меню</a></li>';
 
-            // echo '<li class="nav-item';
-            // if( $_GET['p'] == 'add' ) 
-            //     echo ' active';
-            // echo '"><a class="nav-link" href="/?p=add"';
-            // echo '>Добавление записи</a></li>';
+            echo '<li class="nav-item';
+            if( $_GET['p'] == 'recipes' ) 
+                echo ' active';
+            echo '"><a class="nav-link" href="?p=recipes"';
+            echo '>Новые рецепты</a></li>';
 
             // echo '<li class="nav-item';
             // if( $_GET['p'] == 'edit' ) 
