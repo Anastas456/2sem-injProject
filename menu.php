@@ -21,20 +21,20 @@ function getDishes($page)
             $page=$TOTAL-1; 
             $sql="SELECT * FROM dishes LIMIT ".($page * 10).", 10";
     $sql_res=mysqli_query($mysqli, $sql);
-    $ret='<table><tr><th>ID</th><th>Menu id</th><th>Название</th><th>Описание</th><th>Вес в г</th><th>Цена в руб</th></tr>'; 
+    $ret='<div class="container-fluid">
+        <h1 class="mt-3">Наши блюда</h1>
+        <div class="row">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
-            $ret.='
-            <tr>
-                <td>'.$row[0].'</td>
-                <td>'.$row[1].'</td>
-                <td>'.$row[2].'</td>
-                <td>'.$row[3].'</td>
-                <td>'.$row[4].'</td>
-                <td>'.$row[5].'</td>
-            </tr>';
+            $ret.='<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 p-5 dish-list">
+            <h5 class="text-center">'.$row[2].'</h5>
+            <p class="text-muted">'.$row[3].'</p>
+            <p class="text-left">'.$row[4].' г</p>
+            <p class="text-right">'.$row[5].' руб</p>
+            <button type="button" class="btn btn-lg mb-0 bg-dark text-light">Заказать</button>
+        </div>';
         }
-        $ret.='</table>';
+        $ret.='</div></div>';
         
             if( $PAGES>1 ) 
             {
