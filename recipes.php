@@ -19,9 +19,9 @@ function getRecipes($page)
         $PAGES = ceil($TOTAL/10);
         if( $page>=$TOTAL )
             $page=$TOTAL-1; 
-            $sql="SELECT * FROM for_user LIMIT ".($page * 10).", 10";
-    $sql_res=mysqli_query($mysqli, $sql);
-    $ret='<div class="container-fluid">
+        $sql="SELECT * FROM for_user LIMIT ".($page * 10).", 10";
+        $sql_res=mysqli_query($mysqli, $sql);
+        $ret='<div class="container-fluid">
         <h1 class="mt-3">Новые рецепты</h1>
         <h6>Здесь хранятся блюда, которые могут войти в наше меню. Хотите, чтобы ваше блюдо стало популярным? Добавьте свое блюдо!</h6>
         <div class="row">'; 
@@ -35,20 +35,20 @@ function getRecipes($page)
         }
         $ret.='</div></div>';
         
-            if( $PAGES>1 ) 
-            {
-                $ret.='<div id="pages">';
-                for($i=0; $i<$PAGES; $i++)
-                    if( $i != $page )
-                        $ret.='<a href="?p=recipes&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
-                    else 
-                        $ret.='<span class="m-2">'.($i+1).' страница</span>';
-                $ret.='</div>';
+        if( $PAGES>1 ) 
+        {
+            $ret.='<div id="pages">';
+            for($i=0; $i<$PAGES; $i++){
+                if( $i != $page )
+                    $ret.='<a href="?p=recipes&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
+                else 
+                    $ret.='<span class="m-2">'.($i+1).' страница</span>';
             }
-            mysqli_close($mysqli);
-        return $ret; 
+            $ret.='</div>';
         }
+        mysqli_close($mysqli);
+        return $ret; 
+    }
 return 'Неизвестная ошибка'; 
-
 } 
 ?>

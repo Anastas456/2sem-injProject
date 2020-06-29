@@ -20,8 +20,8 @@ function getDishes($page)
         if( $page>=$TOTAL )
             $page=$TOTAL-1; 
         $sql="SELECT * FROM dishes LIMIT ".($page * 10).", 10";
-    $sql_res=mysqli_query($mysqli, $sql);
-    $ret='<div class="container-fluid">
+        $sql_res=mysqli_query($mysqli, $sql);
+        $ret='<div class="container-fluid">
         <h1 class="mt-3">Наши блюда</h1>
         <div class="row">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
@@ -36,17 +36,19 @@ function getDishes($page)
         }
         $ret.='</div></div>';
         
-            if( $PAGES>1 ) 
-            {
-                $ret.='<div id="pages">';
-                for($i=0; $i<$PAGES; $i++)
-                    if( $i != $page )
-                        $ret.='<a href="?p=menu&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
-                    else 
-                        $ret.='<span class="m-2">'.($i+1).' страница</span>';
-                $ret.='</div>';
+        if( $PAGES>1 ) 
+        {
+            $ret.='<div id="pages">';
+            for($i=0; $i<$PAGES; $i++){
+                if( $i != $page )
+                    $ret.='<a href="?p=menu&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
+                else 
+                    $ret.='<span class="m-2">'.($i+1).' страница</span>';
             }
-            mysqli_close($mysqli);
+            $ret.='</div>';
+            
+        }
+        mysqli_close($mysqli);
         return $ret; 
         }
 return 'Неизвестная ошибка'; 

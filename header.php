@@ -31,36 +31,17 @@
             echo '"><a class="nav-link" href="?p=arg"';
             echo '>Информация по ценам</a></li>';
 
-            // if ($_GET['p']){
-            //     echo '<div class="submenu">';
-            //     echo '<a href="?p=viewer&sort= byid"'; // первый пункт подменю
-            //     if( !isset($_GET['sort']) || $_GET['sort'] == 'max' )
-            //         echo ' class="selected"';
-            //     echo '>Max</a>';
-            //     echo '<a href="?p=viewer&sort=min"'; // второй пункт подменю
-            //     if( isset($_GET['sort']) && $_GET['sort'] == 'min' )
-            //         echo ' class="selected"';
-            //     echo '>Min</a>';
-            //     echo '</div>'; // конец подменю
-            // }
-
             echo '<li class="nav-item';
             if( $_GET['p'] == 'recipes' ) 
                 echo ' active';
             echo '"><a class="nav-link" href="?p=recipes"';
             echo '>Новые рецепты</a></li>';
 
-            // echo '<li class="nav-item';
-            // if( $_GET['p'] == 'edit' ) 
-            //     echo ' active';
-            // echo '"><a class="nav-link" href="/?p=edit"';
-            // echo '>Редактирование записи</a></li>';
-
-            // echo '<li class="nav-item';
-            // if( $_GET['p'] == 'delete' ) 
-            //     echo ' active';
-            // echo '"><a class="nav-link" href="/?p=delete"';
-            // echo '>Удаление записи</a></li>';
+            echo '<li class="nav-item';
+            if( $_GET['p'] == 'add-recipes' ) 
+                echo ' active';
+            echo '"><a class="nav-link" href="?p=add-recipes"';
+            echo '>Добавление рецептов рецепты</a></li>';
 
         ?>
         </ul>
