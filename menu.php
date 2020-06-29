@@ -1,7 +1,7 @@
 <?php
 function getDishes($page)
 {
-    global $mysqli;
+    // global $mysqli;
     $password='123456789';
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = mysqli_connect('std-mysql', 'std_949', $password, 'std_949');

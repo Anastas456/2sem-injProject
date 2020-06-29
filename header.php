@@ -41,7 +41,7 @@
             if( $_GET['p'] == 'add-recipes' ) 
                 echo ' active';
             echo '"><a class="nav-link" href="?p=add-recipes"';
-            echo '>Добавление рецептов рецепты</a></li>';
+            echo '>Добавление рецептов</a></li>';
 
         ?>
         </ul>

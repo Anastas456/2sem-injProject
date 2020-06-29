@@ -18,6 +18,7 @@ if( isset($_POST['button']) && $_POST['button']== 'Добавить блюдо')
 
     if ($_POST['dish-amount']<0){
         echo 'Цена не может быть отрицательной';
+        exit();
     }
 
     $sql_res=mysqli_query($mysqli, "INSERT INTO for_user (dish_name, dish_description, dish_amount) VALUES ('".
