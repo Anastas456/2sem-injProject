@@ -1,6 +1,5 @@
 <?php
-function getDishes($page)
-{
+function getArg($page){
     global $mysqli;
     $password='123456789';
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
@@ -41,15 +40,15 @@ function getDishes($page)
                 $ret.='<div id="pages">';
                 for($i=0; $i<$PAGES; $i++)
                     if( $i != $page )
-                        $ret.='<a href="?p=menu&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
+                        $ret.='<a href="?p=arg&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
                     else 
                         $ret.='<span class="m-2">'.($i+1).' страница</span>';
                 $ret.='</div>';
             }
             mysqli_close($mysqli);
         return $ret; 
-        }
-return 'Неизвестная ошибка'; 
-
-} 
+       'Неизвестная ошибка'; 
+    
+    }  }
+return 
 ?>

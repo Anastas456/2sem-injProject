@@ -26,6 +26,25 @@
             echo '>Меню</a></li>';
 
             echo '<li class="nav-item';
+            if( $_GET['p'] == 'arg' ) 
+                echo ' active';
+            echo '"><a class="nav-link" href="?p=arg"';
+            echo '>Информация по ценам</a></li>';
+
+            // if ($_GET['p']){
+            //     echo '<div class="submenu">';
+            //     echo '<a href="?p=viewer&sort= byid"'; // первый пункт подменю
+            //     if( !isset($_GET['sort']) || $_GET['sort'] == 'max' )
+            //         echo ' class="selected"';
+            //     echo '>Max</a>';
+            //     echo '<a href="?p=viewer&sort=min"'; // второй пункт подменю
+            //     if( isset($_GET['sort']) && $_GET['sort'] == 'min' )
+            //         echo ' class="selected"';
+            //     echo '>Min</a>';
+            //     echo '</div>'; // конец подменю
+            // }
+
+            echo '<li class="nav-item';
             if( $_GET['p'] == 'recipes' ) 
                 echo ' active';
             echo '"><a class="nav-link" href="?p=recipes"';

@@ -23,7 +23,7 @@ function getRecipes($page)
     $sql_res=mysqli_query($mysqli, $sql);
     $ret='<div class="container-fluid">
         <h1 class="mt-3">Новые рецепты</h1>
-        <h6>Здесь хранятся блюда, которые могут войти в нашему меню. Хотите, чтобы ваше блюдо стало популярным? Добавьте свое блюдо!</h6>
+        <h6>Здесь хранятся блюда, которые могут войти в наше меню. Хотите, чтобы ваше блюдо стало популярным? Добавьте свое блюдо!</h6>
         <div class="row">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
@@ -40,9 +40,9 @@ function getRecipes($page)
                 $ret.='<div id="pages">';
                 for($i=0; $i<$PAGES; $i++)
                     if( $i != $page )
-                        $ret.='<a href="?p=recipes&pg='.$i.'">'.($i+1).'</a>';
+                        $ret.='<a href="?p=recipes&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';
                     else 
-                        $ret.='<span>'.($i+1).'</span>';
+                        $ret.='<span class="m-2">'.($i+1).' страница</span>';
                 $ret.='</div>';
             }
             mysqli_close($mysqli);

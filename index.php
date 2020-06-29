@@ -29,6 +29,16 @@
         echo getDishes($_GET['pg']);
     } 
     else
+    if( $_GET['p'] == 'arg' ) { 
+        include 'arg.php'; 
+        if( !isset($_GET['pg']) || $_GET['pg']<0 ) 
+            $_GET['pg']=0;
+        // echo getArg();
+        // if(!isset($_GET['sort']) || ($_GET['sort']!='max' && $_GET['sort']!='min'))
+        //     $_GET['sort']='max';
+        getArg($_GET['pg']);
+    } 
+    else
     if( $_GET['p'] == 'recipes' ) { 
         include 'recipes.php'; 
         if( !isset($_GET['pg']) || $_GET['pg']<0 ) 
