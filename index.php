@@ -43,6 +43,10 @@
     if( $_GET['p'] == 'edit-recipes' ) { 
         include 'edit-recipes.php'; 
     } 
+    else
+    if( $_GET['p'] == 'delete-recipes' ) { 
+        include 'delete-recipes.php'; 
+    } 
 
 
     require 'footer.php';

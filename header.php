@@ -43,6 +43,12 @@
             echo '"><a class="nav-link" href="?p=edit-recipes"';
             echo '>Редактирование рецептов</a></li>';
 
+            echo '<li class="nav-item';
+            if( $_GET['p'] == 'delete-recipes' ) 
+                echo ' active';
+            echo '"><a class="nav-link" href="?p=delete-recipes"';
+            echo '>Удаление рецептов</a></li>';
+
         ?>
         </ul>
     </div>

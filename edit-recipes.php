@@ -44,7 +44,7 @@ if($sql_res)
             <h3><a href="?p=edit-recipes&id='.$row[0].'">Название: '.$row[1].'</a></h3>
             <p>Описание: '.$row[2].'</p>
             <p>Цена: '.$row[3].'</p>
-            </div><br>';
+            </div>';
     }
     echo '</div></div>';
 

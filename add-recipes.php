@@ -31,9 +31,9 @@ if( isset($_POST['button']) && $_POST['button']== 'Добавить блюдо')
     htmlspecialchars($_POST['dish-desc'])."', '".
     htmlspecialchars($_POST['dish-amount'])."');");
     if( !$sql_res )
-        echo '<p class="text-danger">Запись не добавлена</p>';
+        echo '<h3 class="text-danger text-center">Запись не добавлена</h3>';
     else 
-        echo '<p class="text-success">Запись добавлена</p>';
+        echo '<h3 class="text-success text-center">Запись добавлена</h3>';
     mysqli_close($mysqli);    
     }
         
