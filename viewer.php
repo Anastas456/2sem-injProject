@@ -20,7 +20,7 @@ function getMenu($page)
         if( $page>=$TOTAL )
             $page=$TOTAL-1;
 
-        $sql="SELECT * FROM menu LIMIT ".($page * 10).", 10";
+        $sql="SELECT * FROM menu LIMIT ".($page * 12).", 12";
     $sql_res=mysqli_query($mysqli, $sql);
     $ret='<div class="container-fluid view">
         <h1 class="mt-3 view__h1">Разделы меню</h1>
