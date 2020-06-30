@@ -10,6 +10,7 @@
         <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"></script>
         <link rel="stylesheet" href="style.css">
         <link rel="stylesheet" href="media.css">
+        <link rel="stylesheet" href="print.css">
     </head>
 <body>
 <?php

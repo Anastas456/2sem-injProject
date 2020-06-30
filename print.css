@@ -1,0 +1,10 @@
+@media print{
+    .navigation,
+    .dishes__div__dish-list button,
+    .footer{
+        display:none;
+    }
+    .dishes__div__dish-list{
+        page-break-inside: avoid;
+    }
+}
