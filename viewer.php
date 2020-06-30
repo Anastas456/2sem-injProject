@@ -23,7 +23,7 @@ function getMenu($page)
         $sql="SELECT * FROM menu LIMIT ".($page * 10).", 10";
     $sql_res=mysqli_query($mysqli, $sql);
     $ret='<div class="container-fluid view">
-        <h1 class="mt-3 view__h1">Меню</h1>
+        <h1 class="mt-3 view__h1">Разделы меню</h1>
         <div class="row view__div">';
     while( $row=mysqli_fetch_row($sql_res) )
     {
