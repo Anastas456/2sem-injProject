@@ -16,14 +16,14 @@ function getRecipes($page)
         $TOTAL=$row[0];
         if( !$TOTAL)
             return 'В таблице нет данных'; 
-        $PAGES = ceil($TOTAL/10);
+        $PAGES = ceil($TOTAL/12);
         if( $page>=$TOTAL )
             $page=$TOTAL-1; 
-        $sql="SELECT * FROM for_user LIMIT ".($page * 10).", 10";
+        $sql="SELECT * FROM for_user LIMIT ".($page * 12).", 12";
         $sql_res=mysqli_query($mysqli, $sql);
         $ret='<div class="container-fluid">
         <h1 class="mt-3">Новые рецепты</h1>
-        <h6>Здесь хранятся блюда, которые могут войти в наше меню. Хотите, чтобы ваше блюдо стало популярным? Добавьте свое блюдо!</h6>
+        <p>Тут храниться список блюд, которые в скором времени войдут в наше меню</p>
         <div class="row">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
@@ -45,10 +45,12 @@ function getRecipes($page)
                     $ret.='<span class="m-2">'.($i+1).' страница</span>';
             }
             $ret.='</div>';
+            
         }
         mysqli_close($mysqli);
         return $ret; 
-    }
+        }
 return 'Неизвестная ошибка'; 
+
 } 
 ?>

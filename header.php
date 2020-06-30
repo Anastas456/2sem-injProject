@@ -26,12 +26,6 @@
             echo '>Меню</a></li>';
 
             echo '<li class="nav-item';
-            if( $_GET['p'] == 'arg' ) 
-                echo ' active';
-            echo '"><a class="nav-link" href="?p=arg"';
-            echo '>Информация по ценам</a></li>';
-
-            echo '<li class="nav-item';
             if( $_GET['p'] == 'recipes' ) 
                 echo ' active';
             echo '"><a class="nav-link" href="?p=recipes"';

@@ -16,13 +16,16 @@ function getDishes($page)
         $TOTAL=$row[0];
         if( !$TOTAL)
             return 'В таблице нет данных'; 
-        $PAGES = ceil($TOTAL/10);
+        $PAGES = ceil($TOTAL/12);
         if( $page>=$TOTAL )
             $page=$TOTAL-1; 
-        $sql="SELECT * FROM dishes LIMIT ".($page * 10).", 10";
+        $sql="SELECT * FROM dishes LIMIT ".($page * 12).", 12";
+        $cont="SELECT COUNT(*) AS prob FROM dishes";
         $sql_res=mysqli_query($mysqli, $sql);
+        $sql_cont=mysqli_query($mysqli, $cont)->fetch_assoc()['prob'];;
         $ret='<div class="container-fluid">
         <h1 class="mt-3">Наши блюда</h1>
+        <p>В нашем меню сейчас '.$sql_cont.' блюд(а).</p>
         <div class="row">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
