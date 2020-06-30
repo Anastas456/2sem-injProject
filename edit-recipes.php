@@ -6,6 +6,7 @@ if( mysqli_connect_errno() )
 {
     echo 'Ошибка подключения к БД: '.mysqli_connect_error();
 }
+$suc='';
 if( isset($_POST['button']) && $_POST['button']== 'Изменить')
 {
     $sql_res=mysqli_query($mysqli, "UPDATE for_user SET dish_name='".
@@ -13,7 +14,7 @@ if( isset($_POST['button']) && $_POST['button']== 'Изменить')
     htmlspecialchars($_POST['dish-desc'])."', dish_amount='".
     htmlspecialchars($_POST['dish-amount'])."'
     WHERE id=".$_GET['id']);
-    echo '<p class="text-success m-3">Данные изменены</p>'; 
+    $suc= '<h3 class="text-success text-center m-3">Данные изменены</h3>'; 
 }
 
 $currentROW=array();
@@ -67,6 +68,7 @@ if($sql_res)
             </div>
             </form>
             </div>';
+            echo $suc;
     }
     else 
         echo '<p class="text-warning">Записей пока нет</p>';
