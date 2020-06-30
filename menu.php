@@ -1,7 +1,6 @@
 <?php
 function getDishes($page)
 {
-    // global $mysqli;
     $password='123456789';
     mysqli_report(MYSQLI_REPORT_ERROR | MYSQLI_REPORT_STRICT);
     $mysqli = mysqli_connect('std-mysql', 'std_949', $password, 'std_949');
@@ -23,13 +22,13 @@ function getDishes($page)
         $cont="SELECT COUNT(*) AS prob FROM dishes";
         $sql_res=mysqli_query($mysqli, $sql);
         $sql_cont=mysqli_query($mysqli, $cont)->fetch_assoc()['prob'];;
-        $ret='<div class="container-fluid">
-        <h1 class="mt-3">Наши блюда</h1>
-        <p>В нашем меню сейчас '.$sql_cont.' блюд(а).</p>
-        <div class="row">'; 
+        $ret='<div class="container-fluid dishes">
+        <h1 class="mt-3 dishes__h1">Наши блюда</h1>
+        <p class="dishes__p">В нашем меню сейчас '.$sql_cont.' блюд.</p>
+        <div class="row dishes__div">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
-            $ret.='<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 p-5 dish-list">
+            $ret.='<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 p-5 dishes__div__dish-list">
             <h5 class="text-center">'.$row[2].'</h5>
             <p class="text-muted">'.$row[3].'</p>
             <p class="text-left">'.$row[4].' г</p>
@@ -41,7 +40,7 @@ function getDishes($page)
         
         if( $PAGES>1 ) 
         {
-            $ret.='<div id="pages">';
+            $ret.='<div class="dishes__pages">';
             for($i=0; $i<$PAGES; $i++){
                 if( $i != $page )
                     $ret.='<a href="?p=menu&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';

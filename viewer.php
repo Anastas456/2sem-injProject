@@ -21,14 +21,14 @@ function getMenu($page)
             $page=$TOTAL-1;
 
         $sql="SELECT * FROM menu LIMIT ".($page * 10).", 10";
-$sql_res=mysqli_query($mysqli, $sql);
-$ret='<div class="container-fluid">
-    <h1 class="mt-3">Меню</h1>
-    <div class="row">';
+    $sql_res=mysqli_query($mysqli, $sql);
+    $ret='<div class="container-fluid view">
+        <h1 class="mt-3 view__h1">Меню</h1>
+        <div class="row view__div">';
     while( $row=mysqli_fetch_row($sql_res) )
     {
         $ret.='
-        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 p-5 text-center menu-list">
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-4 p-5 text-center view__div__menu-list">
             <a href="?p=menu">'.$row[1].'</a>
         </div>';
     }
@@ -36,7 +36,7 @@ $ret='<div class="container-fluid">
     
         if( $PAGES>1 )
         {
-            $ret.='<div>';
+            $ret.='<div class="view__pages">';
             for($i=0; $i<$PAGES; $i++)
                 if( $i != $page )
                     $ret.='<a href="?p=viewer&pg='.$i.'">'.($i+1).'</a>';

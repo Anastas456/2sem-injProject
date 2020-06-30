@@ -21,13 +21,13 @@ function getRecipes($page)
             $page=$TOTAL-1; 
         $sql="SELECT * FROM for_user LIMIT ".($page * 12).", 12";
         $sql_res=mysqli_query($mysqli, $sql);
-        $ret='<div class="container-fluid">
-        <h1 class="mt-3">Новые рецепты</h1>
-        <p>Тут храниться список блюд, которые в скором времени войдут в наше меню</p>
-        <div class="row">'; 
+        $ret='<div class="container-fluid recipes">
+        <h1 class="mt-3 recipes__h1">Новые рецепты</h1>
+        <p class="recipes__p">Тут храниться список блюд, которые в скором времени войдут в наше меню</p>
+        <div class="row resipes__div">'; 
         while( $row=mysqli_fetch_row($sql_res) ) 
         {
-            $ret.='<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 p-5 dish-list">
+            $ret.='<div class="col-xs-12 col-sm-6 col-md-6 col-lg-4 p-5 recipes__div__dish-list">
             <h5 class="text-center">'.$row[1].'</h5>
             <p class="text-muted">'.$row[2].'</p>
             <p class="text-right text-info">'.$row[3].' руб</p>
@@ -37,7 +37,7 @@ function getRecipes($page)
         
         if( $PAGES>1 ) 
         {
-            $ret.='<div id="pages">';
+            $ret.='<div class="recipes__pages">';
             for($i=0; $i<$PAGES; $i++){
                 if( $i != $page )
                     $ret.='<a href="?p=recipes&pg='.$i.'" class="m-2">'.($i+1).' страница</a>';

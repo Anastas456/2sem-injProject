@@ -14,7 +14,7 @@ if( isset($_POST['button']) && $_POST['button']== 'Изменить')
     htmlspecialchars($_POST['dish-desc'])."', dish_amount='".
     htmlspecialchars($_POST['dish-amount'])."'
     WHERE id=".$_GET['id']);
-    $suc= '<h3 class="text-success text-center m-3">Данные изменены</h3>'; 
+    $suc= '<h3 class="text-success text-center m-3 edits_good">Данные изменены</h3>'; 
 }
 
 $currentROW=array();
@@ -29,18 +29,18 @@ if (!$currentROW){
 $sql_res=mysqli_query($mysqli, 'SELECT * FROM for_user');
 if($sql_res)
 {
-    echo '<div class="container"><div class="row">';
+    echo '<div class="container edits"><div class="row edits__div">';
     while( $row=mysqli_fetch_row($sql_res) )
     {
         if($currentROW[0]==$row[0])
-            echo '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-4">
+            echo '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-4 edits__div__dish-list">
             <h3>Название: '.$row[1].'</h3>
             <p>Описание: '.$row[2].'</p>
             <p>Цена: '.$row[3].'</p>
             </div>';
         else
             echo '
-            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-4">
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-4 edits__div__dish-list">
             <h3><a href="?p=edit-recipes&id='.$row[0].'">Название: '.$row[1].'</a></h3>
             <p>Описание: '.$row[2].'</p>
             <p>Цена: '.$row[3].'</p>
@@ -50,9 +50,9 @@ if($sql_res)
 
     if( $currentROW )
     {
-        echo '<div class="container">
-        <h1 class="mt-3">Изменить блюдо</h1>
-        <form name="form_edit" method="post" action="?p=edit-recipes&id='.$currentROW[0].'" class="mt-4">
+        echo '<div class="container edit">
+        <h1 class="mt-3 edit__h1">Изменить блюдо</h1>
+        <form name="form_edit" method="post" action="?p=edit-recipes&id='.$currentROW[0].'" class="mt-4 edit__form">
         <div class="form-group">
             <label for="dish-name" class="control-label">Название блюда </label>
             <input type="text" class="form-control" name="dish-name" id="dish-name" value="'.
@@ -61,14 +61,14 @@ if($sql_res)
             <input type="textarea" class="form-control" name="dish-desc" id="dish-desc" value="'.
             $currentROW[2].'" required>
             <label for="dish-amount" class="control-label">Цена блюда</label>
-            <input type="number" class="form-control" name="dish-amount" id="dish-amount" value="'.
+            <input type="number" min="0" class="form-control" name="dish-amount" id="dish-amount" value="'.
             $currentROW[3].'"><br>
             
             <input type="submit" name="button" value="Изменить">
-            </div>
-            </form>
-            </div>';
-            echo $suc;
+        </div>
+        </form>
+        </div>';
+        echo $suc;
     }
     else 
         echo '<p class="text-warning">Записей пока нет</p>';
