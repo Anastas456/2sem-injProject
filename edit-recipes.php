@@ -28,20 +28,29 @@ if (!$currentROW){
 $sql_res=mysqli_query($mysqli, 'SELECT * FROM for_user');
 if($sql_res)
 {
-    echo '<div>';
+    echo '<div class="container"><div class="row">';
     while( $row=mysqli_fetch_row($sql_res) )
     {
         if($currentROW[0]==$row[0])
-            echo '<div>'.$row[0].' | '.$row[1].' | '.$row[2].' | '.$row[3].'</div>';
+            echo '<div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-4">
+            <h3>Название: '.$row[1].'</h3>
+            <p>Описание: '.$row[2].'</p>
+            <p>Цена: '.$row[3].'</p>
+            </div>';
         else
-            echo '<a href="?p=edit-recipes&id='.$row[0].'">'.$row[0].' | '.$row[1].' | '.$row[2].' | '.$row[3].'</a><br>';
+            echo '
+            <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 p-4">
+            <h3><a href="?p=edit-recipes&id='.$row[0].'">Название: '.$row[1].'</a></h3>
+            <p>Описание: '.$row[2].'</p>
+            <p>Цена: '.$row[3].'</p>
+            </div><br>';
     }
-    echo '</div>';
+    echo '</div></div>';
 
     if( $currentROW )
     {
         echo '<div class="container">
-        <h1 class="mt-3">Изменить запись</h1>
+        <h1 class="mt-3">Изменить блюдо</h1>
         <form name="form_edit" method="post" action="?p=edit-recipes&id='.$currentROW[0].'" class="mt-4">
         <div class="form-group">
             <label for="dish-name" class="control-label">Название блюда </label>
