@@ -39,9 +39,12 @@
     if( $_GET['p'] == 'add-recipes' ) { 
         include 'add-recipes.php'; 
     } 
+    else
+    if( $_GET['p'] == 'edit-recipes' ) { 
+        include 'edit-recipes.php'; 
+    } 
 
 
-    
     require 'footer.php';
 
 ?>

@@ -7,7 +7,7 @@
     <label for="dish-desc" class="control-label">Описание блюда</label>
     <input type="text" class="form-control" name="dish-desc" id="dish-desc" placeholder="Описание блюда" required>
     <label for="dish-amount" class="control-label">Цена</label>
-    <input type="number"  class="form-control" name="dish-amount" id="dish-amount" placeholder="Цена" required>
+    <input type="number" min="0" class="form-control" name="dish-amount" id="dish-amount" placeholder="Цена" required>
     <input type="submit" class="mt-2" name="button" value="Добавить блюдо">
 </div>
 </form>

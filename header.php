@@ -37,6 +37,12 @@
             echo '"><a class="nav-link" href="?p=add-recipes"';
             echo '>Добавление рецептов</a></li>';
 
+            echo '<li class="nav-item';
+            if( $_GET['p'] == 'edit-recipes' ) 
+                echo ' active';
+            echo '"><a class="nav-link" href="?p=edit-recipes"';
+            echo '>Редактирование рецептов</a></li>';
+
         ?>
         </ul>
     </div>
