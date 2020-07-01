@@ -16,7 +16,7 @@ function getMenu($page)
         $TOTAL=$row[0];
         if( !$TOTAL)
             return 'В таблице нет данных';
-        $PAGES = ceil($TOTAL/10);
+        $PAGES = ceil($TOTAL/12);
         if( $page>=$TOTAL )
             $page=$TOTAL-1;
 
